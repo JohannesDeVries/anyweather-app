@@ -1,14 +1,15 @@
 import React from 'react';
 import './styles/app.css';
 import MapLeaflet from './components/MapLeaflet';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className={'app-container'}>
-      <div className={'sidebar'}>
-        <h1>Info</h1>
+    <div className="app-container">
+      <div className="sidebar">
+        <Header />
       </div>
-      <div className={'map'}>
+      <div className="map">
         <MapLeaflet />
       </div>
     </div>
