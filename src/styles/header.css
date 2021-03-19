@@ -1,8 +1,11 @@
 .header-container {
+  margin: 20px;
+}
+
+.logo-name-button-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px;
 }
 
 .logo-name-container {
@@ -32,8 +35,16 @@
   transition: background-color 0.2s linear;
   font-family: inherit;
   outline: none;
+  cursor: pointer;
 }
 
 .button-add-location:hover {
   background-color: #ee7402;
+}
+
+.description {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 5px;
 }

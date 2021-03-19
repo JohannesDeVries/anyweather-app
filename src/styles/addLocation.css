@@ -1,0 +1,76 @@
+.add-location-container {
+  margin: 25px 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-basis: 0;
+  margin-top: 15px;
+}
+
+.latlng_container {
+  display: flex;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+input {
+  padding: 8px;
+}
+
+input[type='text'] {
+  font-size: 14px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #343243;
+  background-color: #46435a;
+  color: white;
+  font-family: inherit;
+  font-weight: 400;
+}
+
+input[type='text']::placeholder {
+  color: #797683;
+}
+
+.location-name input {
+  width: 60%;
+  max-width: 270px;
+}
+
+.lat {
+  margin-right: 20px;
+}
+
+.lat-lng {
+  max-width: 240px;
+}
+
+.latlng-desc {
+  padding: 5px 0;
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+
+.button-submit {
+  padding: 10px 25px;
+  color: white;
+  background-color: #ff7a00;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s linear;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+.button-submit:hover {
+  background-color: #ee7402;
+}
