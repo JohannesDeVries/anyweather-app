@@ -1,15 +1,17 @@
 .header-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 20px;
 }
 
-.logo {
-  color: #eb9612;
+.logo-name-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+}
+
+.logo {
+  display: flex;
+  color: #ff7a00;
   font-size: 50px;
 }
 
@@ -18,9 +20,20 @@
   font-size: 40px;
 }
 
-.test {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: center;
+.button-add-location {
+  margin: 10px;
+  padding: 15px;
+  color: white;
+  background-color: #ff7a00;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  transition: background-color 0.2s linear;
+  font-family: inherit;
+  outline: none;
+}
+
+.button-add-location:hover {
+  background-color: #ee7402;
 }
