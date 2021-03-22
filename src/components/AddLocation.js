@@ -4,7 +4,7 @@ import '../styles/addLocation.css';
 const AddLocation = (props) => {
   return (
     <div className="add-location-container">
-      <form>
+      <form onSubmit={props.onSubmit}>
         <div className="input-container location-name">
           <label htmlFor="name">Location Name</label>
           <input
@@ -12,7 +12,7 @@ const AddLocation = (props) => {
             id="name"
             placeholder="E.g. Kgalagadi Wildlife Park"
             autoComplete="off"
-            value={props.locationName}
+            value={props.name}
             onChange={props.handleNameInput}
           />
         </div>
@@ -22,7 +22,7 @@ const AddLocation = (props) => {
             <input
               type="text"
               id="lat"
-              placeholder="E.g. -25.621715"
+              placeholder="E.g. -25.2645684"
               autoComplete="off"
               value={props.latLng[0]}
               onChange={props.handleLatitudeInput}
@@ -33,7 +33,7 @@ const AddLocation = (props) => {
             <input
               type="text"
               id="lng"
-              placeholder="E.g. 20.390625"
+              placeholder="E.g. 20.3202437"
               autoComplete="off"
               value={props.latLng[1]}
               onChange={props.handleLongitudeInput}

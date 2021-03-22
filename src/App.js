@@ -3,11 +3,25 @@ import './styles/app.css';
 import MapLeaflet from './components/MapLeaflet';
 import Header from './components/Header';
 import AddLocation from './components/AddLocation';
+import Locations from './components/Locations';
 
 function App() {
   const [showAddComponent, setShowAddComponent] = useState(false);
-  const [locationName, setLocationName] = useState('');
+  const [name, setName] = useState('');
   const [latLng, setLatLng] = useState(['', '']);
+
+  const [locations, setLocations] = useState([
+    {
+      id: 1,
+      name: 'Montagu',
+      latLng: ['-33.772007', '20.124080'],
+    },
+    {
+      id: 2,
+      name: 'London',
+      latLng: ['51.505', '-0.09'],
+    },
+  ]);
 
   // Toggle AddLocation component with 'Add Location' button
   const toggleAddComponent = () => {
@@ -16,7 +30,7 @@ function App() {
 
   //Handle the Location Name input field
   const handleNameInput = (event) => {
-    setLocationName(event.target.value);
+    setName(event.target.value);
   };
 
   //Get latitude and longitude coordinates by clicking on the map and save as an array in useState
@@ -32,6 +46,18 @@ function App() {
     setLatLng([latLng[0], event.target.value]);
   };
 
+  //When clicking on 'Add' button
+  const onSubmit = (event) => {
+    event.preventDefault();
+
+    const id = Math.floor(Math.random() * 10000) + 1;
+
+    setLocations([...locations, { id, name, latLng }]);
+
+    setName('');
+    setLatLng(['', '']);
+  };
+
   return (
     <div className="app-container">
       <div className="sidebar">
@@ -43,13 +69,16 @@ function App() {
         {/* Add Location */}
         {showAddComponent && (
           <AddLocation
-            locationName={locationName}
+            name={name}
             latLng={latLng}
             handleNameInput={handleNameInput}
             handleLatitudeInput={handleLatitudeInput}
             handleLongitudeInput={handleLongitudeInput}
+            onSubmit={onSubmit}
           />
         )}
+        {/* Locations */}
+        <Locations locations={locations} />
       </div>
       <div className="map">
         <MapLeaflet getLatLng={getLatLng} />
