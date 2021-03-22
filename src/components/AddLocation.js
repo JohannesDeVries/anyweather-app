@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/addLocation.css';
 
-const AddLocation = () => {
+const AddLocation = (props) => {
   return (
     <div className="add-location-container">
       <form>
@@ -12,6 +12,8 @@ const AddLocation = () => {
             id="name"
             placeholder="E.g. Kgalagadi Wildlife Park"
             autoComplete="off"
+            value={props.locationName}
+            onChange={props.handleNameInput}
           />
         </div>
         <div className="latlng_container">
@@ -20,8 +22,10 @@ const AddLocation = () => {
             <input
               type="text"
               id="lat"
-              placeholder="E.g. 12.435345345"
+              placeholder="E.g. -25.621715"
               autoComplete="off"
+              value={props.latLng[0]}
+              onChange={props.handleLatitudeInput}
             />
           </div>
           <div className="input-container lat-lng">
@@ -29,8 +33,10 @@ const AddLocation = () => {
             <input
               type="text"
               id="lng"
-              placeholder="E.g. 0.32342342343"
+              placeholder="E.g. 20.390625"
               autoComplete="off"
+              value={props.latLng[1]}
+              onChange={props.handleLongitudeInput}
             />
           </div>
         </div>
