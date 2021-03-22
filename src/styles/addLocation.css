@@ -19,11 +19,8 @@ label {
   font-size: 15px;
 }
 
-input {
-  padding: 8px;
-}
-
 input[type='text'] {
+  padding: 10px;
   font-size: 14px;
   border-radius: 5px;
   outline: none;
@@ -43,12 +40,12 @@ input[type='text']::placeholder {
   max-width: 270px;
 }
 
-.lat {
-  margin-right: 20px;
-}
-
 .lat-lng {
   max-width: 240px;
+}
+
+.lat {
+  margin-right: 20px;
 }
 
 .latlng-desc {

@@ -11,7 +11,7 @@ const AddLocation = () => {
             type="text"
             id="name"
             placeholder="E.g. Kgalagadi Wildlife Park"
-            autocomplete="off"
+            autoComplete="off"
           />
         </div>
         <div className="latlng_container">
@@ -21,7 +21,7 @@ const AddLocation = () => {
               type="text"
               id="lat"
               placeholder="E.g. 12.435345345"
-              autocomplete="off"
+              autoComplete="off"
             />
           </div>
           <div className="input-container lat-lng">
@@ -30,7 +30,7 @@ const AddLocation = () => {
               type="text"
               id="lng"
               placeholder="E.g. 0.32342342343"
-              autocomplete="off"
+              autoComplete="off"
             />
           </div>
         </div>
