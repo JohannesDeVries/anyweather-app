@@ -10,7 +10,7 @@ const AddLocation = (props) => {
           <input
             type="text"
             id="name"
-            placeholder="E.g. Kgalagadi Wildlife Park"
+            placeholder="Please enter name for location"
             autoComplete="off"
             value={props.name}
             onChange={props.handleNameInput}

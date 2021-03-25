@@ -6,22 +6,10 @@ import AddLocation from './components/AddLocation';
 import Locations from './components/Locations';
 
 function App() {
+  const [locations, setLocations] = useState([]);
   const [showAddComponent, setShowAddComponent] = useState(false);
   const [name, setName] = useState('');
   const [latLng, setLatLng] = useState(['', '']);
-
-  const [locations, setLocations] = useState([
-    {
-      id: 1,
-      name: 'Montagu',
-      latLng: ['-33.772007', '20.124080'],
-    },
-    {
-      id: 2,
-      name: 'London',
-      latLng: ['51.505', '-0.09'],
-    },
-  ]);
 
   // Toggle AddLocation component with 'Add Location' button
   const toggleAddComponent = () => {
@@ -78,7 +66,7 @@ function App() {
           />
         )}
         {/* Locations */}
-        <Locations locations={locations} />
+        <Locations locations={locations} onSubmit={onSubmit} />
       </div>
       <div className="map">
         <MapLeaflet getLatLng={getLatLng} />
