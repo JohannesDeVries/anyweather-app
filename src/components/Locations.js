@@ -1,9 +1,10 @@
 import React from 'react';
 import Location from './Location';
+import '../styles/locations.css';
 
 const Locations = (props) => {
   return (
-    <>
+    <div className="locations-container">
       {/* Display each element in list array */}
       {props.locations.map((location) => (
         <Location
@@ -13,7 +14,7 @@ const Locations = (props) => {
           onSubmit={props.onSubmit}
         />
       ))}
-    </>
+    </div>
   );
 };
 
