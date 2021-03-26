@@ -8,8 +8,7 @@ const Location = (props) => {
   const [temp, setTemp] = useState('');
   const [isLoading, setisLoading] = useState(true);
 
-  const key = 'd53799fe00bab48c01f32d17ca0aeed9';
-
+  const key = process.env.REACT_APP_WEATHER_API_KEY;
   const lat = props.location.latLng[0];
   const lng = props.location.latLng[1];
 
@@ -23,7 +22,7 @@ const Location = (props) => {
         setisLoading(false);
         console.log('update');
       });
-  }, [props.locations, lat, lng]);
+  }, [props.locations, lat, lng, key]);
 
   return isLoading ? (
     <div className="loading"></div>

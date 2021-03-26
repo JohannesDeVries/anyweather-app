@@ -46,6 +46,7 @@ function App() {
     setLatLng(['', '']);
   };
 
+  //Delete location
   const deleteLocation = (id) => {
     setLocations(locations.filter((location) => id !== location.id));
   };
@@ -77,7 +78,8 @@ function App() {
         />
       </div>
       <div className="map">
-        <MapLeaflet getLatLng={getLatLng} />
+        {/* Map */}
+        <MapLeaflet getLatLng={getLatLng} locations={locations} />
       </div>
     </div>
   );
