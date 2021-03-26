@@ -46,6 +46,10 @@ function App() {
     setLatLng(['', '']);
   };
 
+  const deleteLocation = (id) => {
+    setLocations(locations.filter((location) => id !== location.id));
+  };
+
   return (
     <div className="app-container">
       <div className="sidebar">
@@ -66,7 +70,11 @@ function App() {
           />
         )}
         {/* Locations */}
-        <Locations locations={locations} onSubmit={onSubmit} />
+        <Locations
+          locations={locations}
+          onSubmit={onSubmit}
+          deleteLocation={deleteLocation}
+        />
       </div>
       <div className="map">
         <MapLeaflet getLatLng={getLatLng} />

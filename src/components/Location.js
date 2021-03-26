@@ -21,6 +21,7 @@ const Location = (props) => {
       .then((json) => {
         setTemp(json.main.temp);
         setisLoading(false);
+        console.log('update');
       });
   }, [props.locations, lat, lng]);
 
@@ -44,7 +45,7 @@ const Location = (props) => {
         <h4>
           <FaMapMarkerAlt />
         </h4>
-        <h4>
+        <h4 onClick={() => props.deleteLocation(props.location.id)}>
           <FaTrashAlt />
         </h4>
       </div>
