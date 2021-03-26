@@ -41,7 +41,7 @@ const Location = (props) => {
         <button>10 day forecast</button>
       </div>
       <div className="icon-container">
-        <h4>
+        <h4 onClick={() => props.flyToLocation(props.location.id)}>
           <FaMapMarkerAlt />
         </h4>
         <h4 onClick={() => props.deleteLocation(props.location.id)}>

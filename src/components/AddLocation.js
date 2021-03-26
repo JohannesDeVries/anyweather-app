@@ -10,7 +10,7 @@ const AddLocation = (props) => {
           <input
             type="text"
             id="name"
-            placeholder="Please enter name for location"
+            placeholder="Enter name for custom location"
             autoComplete="off"
             value={props.name}
             onChange={props.handleNameInput}

@@ -13,6 +13,7 @@ const Locations = (props) => {
           locations={props.locations}
           onSubmit={props.onSubmit}
           deleteLocation={props.deleteLocation}
+          flyToLocation={props.flyToLocation}
         />
       ))}
     </div>

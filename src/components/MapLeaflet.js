@@ -4,7 +4,12 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const MapLeaflet = (props) => {
   return (
-    <Map center={[-30.559483, 22.937506]} zoom={6} onClick={props.getLatLng}>
+    <Map
+      center={[-28.7863, 24.514]}
+      zoom={6}
+      onClick={props.getLatLng}
+      ref={props.mapRef}
+    >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

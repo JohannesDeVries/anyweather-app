@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './styles/app.css';
 import MapLeaflet from './components/MapLeaflet';
 import Header from './components/Header';
@@ -51,6 +51,22 @@ function App() {
     setLocations(locations.filter((location) => id !== location.id));
   };
 
+  //Move to location when clicking on marker icon
+  const mapRef = useRef();
+  const flyToLocation = (id) => {
+    const { current } = mapRef;
+    const { leafletElement: map } = current;
+    locations.map((location) =>
+      location.id === id
+        ? map.flyTo(
+            [Number(location.latLng[0]), Number(location.latLng[1])],
+            8,
+            { duration: 2 }
+          )
+        : location
+    );
+  };
+
   return (
     <div className="app-container">
       <div className="sidebar">
@@ -75,11 +91,16 @@ function App() {
           locations={locations}
           onSubmit={onSubmit}
           deleteLocation={deleteLocation}
+          flyToLocation={flyToLocation}
         />
       </div>
       <div className="map">
         {/* Map */}
-        <MapLeaflet getLatLng={getLatLng} locations={locations} />
+        <MapLeaflet
+          getLatLng={getLatLng}
+          locations={locations}
+          mapRef={mapRef}
+        />
       </div>
     </div>
   );
