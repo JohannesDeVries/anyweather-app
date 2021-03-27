@@ -60,7 +60,7 @@ function App() {
       location.id === id
         ? map.flyTo(
             [Number(location.latLng[0]), Number(location.latLng[1])],
-            8,
+            9,
             { duration: 2 }
           )
         : location

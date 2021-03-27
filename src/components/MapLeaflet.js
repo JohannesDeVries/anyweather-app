@@ -1,19 +1,39 @@
 import React from 'react';
 import '../styles/mapLeaflet.css';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+// import Leaflet from 'leaflet';
 
 const MapLeaflet = (props) => {
+  // const corner1 = Leaflet.latLng(-90, -180);
+  // const corner2 = Leaflet.latLng(90, 180);
+  // const bounds = Leaflet.latLngBounds(corner1, corner2);
+  const bounds = [
+    [-85.05112878, -180],
+    [85.05112878, 180],
+  ];
+
   return (
     <Map
       center={[-28.7863, 24.514]}
       zoom={6}
       onClick={props.getLatLng}
       ref={props.mapRef}
+      maxBoundsViscosity={1.0}
+      // maxBounds={bounds}
+      maxBounds={bounds}
+      minZoom={3}
     >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        noWrap="true"
+        bounds={bounds}
+        // maxBoundsViscosity={1.0}
+        // maxBounds={bounds}
+        // continuousWorld="true"
+        // maxNativeZoom={7}
       />
+
       {/* Display Markers on map for each location */}
       {props.locations.map((location) => (
         <Marker
