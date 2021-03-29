@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { FaTrashAlt, FaMapMarkerAlt } from 'react-icons/fa';
-import { WiDayRainMix } from 'react-icons/wi';
 import SevenDaysForecast from './SevenDayForecast';
-
 import '../styles/location.css';
 
 const Location = (props) => {
-  const [temp, setTemp] = useState('');
+  const [temp, setTemp] = useState();
+  const [icon, setIcon] = useState();
   const [isLoading, setisLoading] = useState(true);
 
+  const [showForecastComponent, setShowForecastComponent] = useState(false);
+
   const [sevenDayTemp, setSevenDayTemp] = useState([]);
+  const [isLoadingForecast, setIsLoadingForecast] = useState(true);
 
   const key = process.env.REACT_APP_WEATHER_API_KEY;
   const lat = props.location.latLng[0];
   const lng = props.location.latLng[1];
 
+  // Current Weather API call and getting weather icon.
   useEffect(() => {
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${key}`
@@ -22,39 +25,41 @@ const Location = (props) => {
       .then((res) => res.json())
       .then((json) => {
         setTemp(json.main.temp);
+        setIcon(`http://openweathermap.org/img/wn/${json.weather[0].icon}.png`);
         setisLoading(false);
-        console.log('update');
       });
   }, [props.locations, lat, lng, key]);
 
+  // 7 Day forecast API call
   const sevenDayApiCall = () => {
+    setShowForecastComponent(!showForecastComponent);
     fetch(
       `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=current,minutely,hourly,alerts&units=metric&appid=${key}`
     )
       .then((res) => res.json())
       .then((json) => {
-        // setIsLoaded(true);
         setSevenDayTemp(json.daily);
-        console.log(json.daily);
+        setIsLoadingForecast(false);
       });
   };
 
+  // Wait for API call to complete and then display info.
   return isLoading ? (
     <div className="loading"></div>
   ) : (
     <>
       <div className="location-container">
         <div className="name-temp-container">
-          <h1>{props.location.name}</h1>
+          <h5>{props.location.name}</h5>
           <div className="temp-container">
-            <h3>
-              <WiDayRainMix />
-            </h3>
+            <img src={icon} alt="icon" />
             <h2>{Math.round(temp)}°C</h2>
           </div>
         </div>
         <div className="days-button-container">
-          <button onClick={sevenDayApiCall}>7 day forecast</button>
+          <button onClick={sevenDayApiCall}>
+            {showForecastComponent ? 'Close' : '7 day forecast'}
+          </button>
         </div>
         <div className="icon-container">
           <h4 onClick={() => props.flyToLocation(props.location.id)}>
@@ -65,10 +70,13 @@ const Location = (props) => {
           </h4>
         </div>
       </div>
-      <SevenDaysForecast
-        location={props.location}
-        sevenDayTemp={sevenDayTemp}
-      />
+      {showForecastComponent && (
+        <SevenDaysForecast
+          location={props.location}
+          sevenDayTemp={sevenDayTemp}
+          isLoadingForecast={isLoadingForecast}
+        />
+      )}
     </>
   );
 };

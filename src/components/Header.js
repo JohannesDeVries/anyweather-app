@@ -23,7 +23,8 @@ const Header = (props) => {
         </div>
       </div>
       <p className="description">
-        Get the weather from any point in the world by clicking on the map.
+        Get the weather from <span>anywhere</span> in the world by clicking on
+        the map.
       </p>
     </div>
   );

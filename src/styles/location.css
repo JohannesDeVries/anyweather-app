@@ -1,7 +1,7 @@
 .loading {
-  margin: 20px;
-  background-color: #46435a;
-  height: 107px;
+  margin: 10px 20px;
+  background-color: #555972;
+  height: 100px;
   border-radius: 8px;
 }
 
@@ -10,10 +10,11 @@
   justify-content: space-between;
   align-items: center;
 
-  background-color: #46435a;
-  margin: 20px;
+  background-color: #555972;
+  /* #555972 */
+  margin: 10px 20px;
   border-radius: 8px;
-  padding: 18px;
+  padding: 15px;
 }
 
 .name-temp-container {
@@ -24,17 +25,20 @@
   justify-content: center;
 }
 
-h1 {
+h5 {
   font-size: 15px;
   font-weight: 400;
   word-break: break-word;
-  margin-bottom: 10px;
 }
 
 .temp-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.temp-container img {
+  margin-left: -8px;
 }
 
 h2 {
@@ -49,15 +53,16 @@ h3 {
 }
 
 .days-button-container {
-  flex-grow: 1;
+  flex-grow: 1.7;
   flex-basis: 0;
+  align-items: center;
 }
 
 .days-button-container button {
   margin: 0 10px;
   padding: 12px;
   color: white;
-  background-color: #ff7a00;
+  background-color: #444664;
   border: none;
   border-radius: 10px;
   font-weight: 400;
@@ -68,11 +73,11 @@ h3 {
   cursor: pointer;
 }
 .days-button-container button:hover {
-  background-color: #ee7402;
+  background-color: #383952;
 }
 
 .icon-container {
-  flex-grow: 1;
+  flex-grow: 0.8;
   flex-basis: 0;
   display: flex;
   justify-content: flex-end;

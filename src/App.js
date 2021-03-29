@@ -16,17 +16,17 @@ function App() {
     setShowAddComponent(!showAddComponent);
   };
 
-  //Handle the Location Name input field
+  // Handle the Location Name input field
   const handleNameInput = (event) => {
     setName(event.target.value);
   };
 
-  //Get latitude and longitude coordinates by clicking on the map and save as an array in useState
+  // Get latitude and longitude coordinates by clicking on the map and save as an array in useState
   const getLatLng = (event) => {
     setLatLng([event.latlng.lat, event.latlng.lng]);
   };
 
-  //Handle the Latitude and Longitude input fields for manual input
+  // Handle the Latitude and Longitude input fields for manual input
   const handleLatitudeInput = (event) => {
     setLatLng([event.target.value, latLng[1]]);
   };
@@ -34,7 +34,7 @@ function App() {
     setLatLng([latLng[0], event.target.value]);
   };
 
-  //When clicking on 'Add' button
+  // When clicking on 'Add' button
   const onSubmit = (event) => {
     event.preventDefault();
 
@@ -46,12 +46,12 @@ function App() {
     setLatLng(['', '']);
   };
 
-  //Delete location
+  // Delete location
   const deleteLocation = (id) => {
     setLocations(locations.filter((location) => id !== location.id));
   };
 
-  //Move to location when clicking on marker icon
+  // Move to location when clicking on marker icon
   const mapRef = useRef();
   const flyToLocation = (id) => {
     const { current } = mapRef;

@@ -25,14 +25,14 @@ input[type='text'] {
   border-radius: 5px;
   outline: none;
   border: 1px solid #343243;
-  background-color: #46435a;
+  background-color: #555972;
   color: white;
   font-family: inherit;
   font-weight: 400;
 }
 
 input[type='text']::placeholder {
-  color: #797683;
+  color: #98979b;
 }
 
 .location-name input {
