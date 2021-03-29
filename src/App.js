@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './styles/app.css';
 import MapLeaflet from './components/MapLeaflet';
 import Header from './components/Header';
@@ -10,6 +10,18 @@ function App() {
   const [showAddComponent, setShowAddComponent] = useState(false);
   const [name, setName] = useState('');
   const [latLng, setLatLng] = useState(['', '']);
+
+  //Saves locations from LocalStorage (if LocalStorage contains data), when app loads.
+  useEffect(() => {
+    if (localStorage.getItem('locations')) {
+      setLocations(JSON.parse(localStorage.getItem('locations')));
+    }
+  }, []);
+
+  //Runs every time locations state changes and stores locations array in LocalStorage.
+  useEffect(() => {
+    localStorage.setItem('locations', JSON.stringify(locations));
+  }, [locations]);
 
   // Toggle AddLocation component with 'Add Location' button
   const toggleAddComponent = () => {
