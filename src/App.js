@@ -12,16 +12,16 @@ function App() {
   const [latLng, setLatLng] = useState(['', '']);
 
   //Saves locations from LocalStorage (if LocalStorage contains data), when app loads.
-  useEffect(() => {
-    if (localStorage.getItem('locations')) {
-      setLocations(JSON.parse(localStorage.getItem('locations')));
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (localStorage.getItem('locations')) {
+  //     setLocations(JSON.parse(localStorage.getItem('locations')));
+  //   }
+  // }, []);
 
   //Runs every time locations state changes and stores locations array in LocalStorage.
-  useEffect(() => {
-    localStorage.setItem('locations', JSON.stringify(locations));
-  }, [locations]);
+  // useEffect(() => {
+  //   localStorage.setItem('locations', JSON.stringify(locations));
+  // }, [locations]);
 
   // Toggle AddLocation component with 'Add Location' button
   const toggleAddComponent = () => {
@@ -46,9 +46,37 @@ function App() {
     setLatLng([latLng[0], event.target.value]);
   };
 
+  // Validate inputs
+  const validation = () => {};
+
   // When clicking on 'Add' button
   const onSubmit = (event) => {
+    // Won't submit to another page
     event.preventDefault();
+
+    const regex = /.*\S.*/g;
+    if (!regex.test(name)) {
+      alert('Please enter a name for the location.');
+      return;
+    } else if (
+      !regex.test(latLng[0]) ||
+      isNaN(Number(latLng[0])) ||
+      Number(latLng[0]) <= -90 ||
+      Number(latLng[0]) >= 90
+    ) {
+      alert('Please enter a valid Latitude.');
+      return;
+    } else if (
+      !regex.test(latLng[1]) ||
+      isNaN(Number(latLng[1])) ||
+      Number(latLng[1]) <= -180 ||
+      Number(latLng[1]) >= 180
+    ) {
+      alert('Please enter a valid Longitude.');
+      return;
+    }
+
+    // validation();
 
     const id = Math.floor(Math.random() * 10000) + 1;
 
