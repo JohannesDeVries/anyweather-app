@@ -17,8 +17,6 @@ const Location = (props) => {
   const lat = props.location.latLng[0];
   const lng = props.location.latLng[1];
 
-  // .replace(/\s\s+/g, '');
-
   // Current Weather API call and getting weather icon.
   useEffect(() => {
     fetch(
