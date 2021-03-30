@@ -19,15 +19,13 @@ const ForecastDay = (props) => {
       setDate(convertedDate);
     };
     convertTimeStamp(props.forecast.dt);
+
     setIcon(
       `http://openweathermap.org/img/wn/${props.forecast.weather[0].icon}.png`
     );
   }, [props.forecast]);
 
-  // Wait for API call to complete and then display info.
-  return props.isLoadingForecast ? (
-    <div className="forecast-loading"></div>
-  ) : (
+  return (
     <div className="forecast-day-container">
       <div className="date-container">
         {/* If the date from the OpenWeather = today's date the display 'Today' otherwise display the date. */}

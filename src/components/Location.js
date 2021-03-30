@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaTrashAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import SevenDaysForecast from './SevenDayForecast';
 import '../styles/location.css';
+import spinner from '../spinner/spinner.gif';
 
 const Location = (props) => {
   const [temp, setTemp] = useState();
@@ -11,7 +12,6 @@ const Location = (props) => {
   const [showForecastComponent, setShowForecastComponent] = useState(false);
 
   const [sevenDayTemp, setSevenDayTemp] = useState([]);
-  const [isLoadingForecast, setIsLoadingForecast] = useState(true);
 
   const key = process.env.REACT_APP_WEATHER_API_KEY;
   const lat = props.location.latLng[0];
@@ -31,21 +31,26 @@ const Location = (props) => {
   }, [props.locations, lat, lng, key]);
 
   // 7 Day forecast API call
-  const sevenDayApiCall = () => {
-    setShowForecastComponent(!showForecastComponent);
+  useEffect(() => {
     fetch(
       `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=current,minutely,hourly,alerts&units=metric&appid=${key}`
     )
       .then((res) => res.json())
       .then((json) => {
         setSevenDayTemp(json.daily);
-        setIsLoadingForecast(false);
       });
+  }, [props.sevenDayTemp, lat, lng, key]);
+
+  // Displays the forecast of selected location
+  const sevenDayApiButton = () => {
+    setShowForecastComponent(!showForecastComponent);
   };
 
   // Wait for API call to complete and then display info.
   return isLoading ? (
-    <div className="loading"></div>
+    <div className="loading">
+      <img src={spinner} alt="Loading" />
+    </div>
   ) : (
     <>
       <div className="location-container">
@@ -57,8 +62,8 @@ const Location = (props) => {
           </div>
         </div>
         <div className="days-button-container">
-          <button onClick={sevenDayApiCall}>
-            {showForecastComponent ? 'Close' : '7 day forecast'}
+          <button onClick={sevenDayApiButton}>
+            {showForecastComponent ? 'Close' : '8-day forecast'}
           </button>
         </div>
         <div className="icon-container">
@@ -74,7 +79,6 @@ const Location = (props) => {
         <SevenDaysForecast
           location={props.location}
           sevenDayTemp={sevenDayTemp}
-          isLoadingForecast={isLoadingForecast}
         />
       )}
     </>

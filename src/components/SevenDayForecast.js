@@ -7,12 +7,11 @@ const SevenDaysForecast = (props) => {
   return (
     <div className="seven-day-forecast-container">
       {/* Display each element in sevenDayTemp array */}
-      {props.sevenDayTemp.map((forecast, index) => (
+      {props.sevenDayTemp.map((forecast) => (
         <ForecastDay
           key={nanoid()}
           forecast={forecast}
           location={props.location}
-          isLoadingForecast={props.isLoadingForecast}
         />
       ))}
     </div>
