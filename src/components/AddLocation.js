@@ -15,6 +15,7 @@ const AddLocation = (props) => {
             value={props.name}
             onChange={props.handleNameInput}
           />
+          {props.showNameError && <p>Please enter a name for the location</p>}
         </div>
         <div className="latlng_container">
           <div className="input-container lat lat-lng">
@@ -27,6 +28,7 @@ const AddLocation = (props) => {
               value={props.latLng[0]}
               onChange={props.handleLatitudeInput}
             />
+            {props.showLatError && <p>Please enter a valid Latitude</p>}
           </div>
           <div className="input-container lat-lng">
             <label htmlFor="lng">Longitude*</label>
@@ -38,6 +40,7 @@ const AddLocation = (props) => {
               value={props.latLng[1]}
               onChange={props.handleLongitudeInput}
             />
+            {props.showLngError && <p>Please enter a valid Longitude</p>}
           </div>
         </div>
         <div className="latlng-desc">

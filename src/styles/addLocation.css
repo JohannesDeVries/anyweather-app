@@ -71,3 +71,9 @@ input[type='text']::placeholder {
 .button-submit:hover {
   background-color: #ee7402;
 }
+
+.input-container p {
+  color: #e95065;
+  font-weight: 400;
+  font-size: 14px;
+}

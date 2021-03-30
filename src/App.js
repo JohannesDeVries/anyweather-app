@@ -4,6 +4,7 @@ import MapLeaflet from './components/MapLeaflet';
 import Header from './components/Header';
 import AddLocation from './components/AddLocation';
 import Locations from './components/Locations';
+
 import './styles/app.css';
 
 function App() {
@@ -11,6 +12,11 @@ function App() {
   const [showAddComponent, setShowAddComponent] = useState(false);
   const [name, setName] = useState('');
   const [latLng, setLatLng] = useState(['', '']);
+
+  //Error message State
+  const [showNameError, setShowNameError] = useState(false);
+  const [showLatError, setShowLatError] = useState(false);
+  const [showLngError, setShowLngError] = useState(false);
 
   //Saves locations from LocalStorage (if LocalStorage contains data), when app loads.
   useEffect(() => {
@@ -50,13 +56,13 @@ function App() {
   // Variable to stop onSubmit function
   var stopVal = false;
 
-  // Validate form
+  // Validate form (name, latitude and longitude)
   const validation = () => {
     const regex1 = /.*\S.*/;
     const regex2 = /\s+/;
     ///\s+/g
     if (!regex1.test(name)) {
-      alert('Please enter a name for the location.');
+      setShowNameError(true);
       stopVal = true;
       return;
     } else if (
@@ -66,7 +72,7 @@ function App() {
       latLng[0] < -90 ||
       latLng[0] > 90
     ) {
-      alert('Please enter a valid Latitude.');
+      setShowLatError(true);
       stopVal = true;
       return;
     } else if (
@@ -76,7 +82,7 @@ function App() {
       latLng[1] < -180 ||
       latLng[1] > 180
     ) {
-      alert('Please enter a valid Longitude.');
+      setShowLngError(true);
       stopVal = true;
       return;
     }
@@ -87,6 +93,12 @@ function App() {
     // Won't submit to another page
     event.preventDefault();
 
+    //Remove error messages
+    setShowNameError(false);
+    setShowLatError(false);
+    setShowLngError(false);
+
+    // Validate form
     validation();
     // If validation fails, stop onSubmit function
     if (stopVal) {
@@ -142,6 +154,9 @@ function App() {
             handleLatitudeInput={handleLatitudeInput}
             handleLongitudeInput={handleLongitudeInput}
             onSubmit={onSubmit}
+            showNameError={showNameError}
+            showLatError={showLatError}
+            showLngError={showLngError}
           />
         )}
         {/* Locations */}
