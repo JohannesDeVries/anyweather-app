@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './styles/app.css';
+import { nanoid } from 'nanoid';
 import MapLeaflet from './components/MapLeaflet';
 import Header from './components/Header';
 import AddLocation from './components/AddLocation';
 import Locations from './components/Locations';
+import './styles/app.css';
 
 function App() {
   const [locations, setLocations] = useState([]);
@@ -92,7 +93,8 @@ function App() {
       return;
     }
 
-    const id = Math.floor(Math.random() * 10000) + 1;
+    // Generate ID for locaion using Nanoid
+    const id = nanoid();
 
     //Save current locations and all info of new location as an object in the locations array
     setLocations([...locations, { id, name, latLng }]);
@@ -111,10 +113,10 @@ function App() {
   const mapRef = useRef();
   const flyToLocation = (id) => {
     const { current } = mapRef;
-    const { leafletElement: map } = current;
+    const { leafletElement: leafletMap } = current;
     locations.map((location) =>
       location.id === id
-        ? map.flyTo(
+        ? leafletMap.flyTo(
             [Number(location.latLng[0]), Number(location.latLng[1])],
             9,
             { duration: 2 }
