@@ -4,7 +4,7 @@ import MapLeaflet from './components/MapLeaflet';
 import Header from './components/Header';
 import AddLocation from './components/AddLocation';
 import Locations from './components/Locations';
-
+import Footer from './components/Footer';
 import './styles/app.css';
 
 function App() {
@@ -40,9 +40,9 @@ function App() {
     setName(event.target.value);
   };
 
-  // Get latitude and longitude coordinates by clicking on the map and save as an array in useState
+  // Get latitude and longitude coordinates by clicking on the map and save as an array in useState.
   const getLatLng = (event) => {
-    setLatLng([event.latlng.lat, event.latlng.lng]);
+    setLatLng([event.latlng.lat.toFixed(6), event.latlng.lng.toFixed(6)]);
   };
 
   // Handle the Latitude and Longitude input fields for manual input
@@ -130,45 +130,57 @@ function App() {
       location.id === id
         ? leafletMap.flyTo(
             [Number(location.latLng[0]), Number(location.latLng[1])],
-            9,
+            10,
             { duration: 2 }
           )
         : location
     );
   };
 
+  // window.onbeforeunload = function () {
+  //   window.scrollTo(0, 0);
+  // };
+
+  // onLoad="location.href='#top'" id="top"
+
   return (
     <div className="app-container">
       <div className="sidebar">
-        {/* Header */}
-        <Header
-          toggleAddComponent={toggleAddComponent}
-          showAddComponent={showAddComponent}
-        />
-        {/* Add Location */}
-        {showAddComponent && (
-          <AddLocation
-            name={name}
-            latLng={latLng}
-            handleNameInput={handleNameInput}
-            handleLatitudeInput={handleLatitudeInput}
-            handleLongitudeInput={handleLongitudeInput}
-            onSubmit={onSubmit}
-            showNameError={showNameError}
-            showLatError={showLatError}
-            showLngError={showLngError}
+        <div>
+          {/* Header */}
+          <Header
+            toggleAddComponent={toggleAddComponent}
+            showAddComponent={showAddComponent}
           />
-        )}
-        {/* Locations */}
-        <Locations
-          locations={locations}
-          onSubmit={onSubmit}
-          deleteLocation={deleteLocation}
-          flyToLocation={flyToLocation}
-        />
+          {/* Add Location */}
+          {showAddComponent && (
+            <AddLocation
+              name={name}
+              latLng={latLng}
+              handleNameInput={handleNameInput}
+              handleLatitudeInput={handleLatitudeInput}
+              handleLongitudeInput={handleLongitudeInput}
+              onSubmit={onSubmit}
+              showNameError={showNameError}
+              showLatError={showLatError}
+              showLngError={showLngError}
+            />
+          )}
+          {/* Locations */}
+          <Locations
+            locations={locations}
+            onSubmit={onSubmit}
+            deleteLocation={deleteLocation}
+            flyToLocation={flyToLocation}
+          />
+        </div>
+        {/* Footer */}
+        <div>
+          <Footer />
+        </div>
       </div>
+      {/* Map */}
       <div className="map">
-        {/* Map */}
         <MapLeaflet
           getLatLng={getLatLng}
           locations={locations}

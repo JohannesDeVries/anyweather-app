@@ -5,3 +5,11 @@
   margin: 0 20px;
   padding-bottom: 20px;
 }
+/* RESPONSIVE */
+@media (max-width: 500px) {
+  .seven-day-forecast-container {
+    grid-gap: 8px;
+    padding-bottom: 15px;
+    grid-template-columns: repeat(4, minmax(60px, 1fr));
+  }
+}

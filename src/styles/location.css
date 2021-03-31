@@ -75,6 +75,7 @@ h3 {
   outline: none;
   cursor: pointer;
 }
+
 .days-button-container button:hover {
   background-color: #383952;
 }
@@ -96,4 +97,62 @@ h4 {
 
 h4 :hover {
   color: rgb(218, 218, 218);
+}
+
+.loading img {
+  width: 50px;
+  height: 50px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 500px) {
+  .loading {
+    height: 88px;
+  }
+
+  .location-container {
+    padding: 10px;
+  }
+
+  h5 {
+    font-size: 13px;
+  }
+
+  .temp-container img {
+    margin-left: -7px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  .name-temp-container {
+    flex-grow: 1.8;
+  }
+
+  .days-button-container button {
+    margin: 0 10px;
+    margin-right: 0;
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  h4 {
+    margin-left: 8px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .loading {
+    height: 87px;
+  }
+
+  h5 {
+    font-size: 12px;
+  }
+
+  .days-button-container button {
+    font-size: 10px;
+  }
 }

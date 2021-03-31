@@ -13,7 +13,7 @@ const Location = (props) => {
 
   const [sevenDayTemp, setSevenDayTemp] = useState([]);
 
-  const key = process.env.REACT_APP_WEATHER_API_KEY;
+  const key = 'd53799fe00bab48c01f32d17ca0aeed9';
   const lat = props.location.latLng[0];
   const lng = props.location.latLng[1];
 

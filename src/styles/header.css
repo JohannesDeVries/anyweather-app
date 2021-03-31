@@ -24,7 +24,7 @@
 }
 
 .button-add-location {
-  margin: 10px;
+  margin: 12px;
   padding: 15px;
   color: white;
   background-color: #ff7a00;
@@ -51,4 +51,46 @@
 
 .description span {
   font-style: italic;
+}
+
+/* RESPONSIVE */
+@media (max-width: 500px) {
+  .logo {
+    font-size: 45px;
+  }
+
+  .name {
+    font-size: 35px;
+  }
+
+  .button-add-location {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .description {
+    font-size: 11px;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .logo {
+    font-size: 38px;
+  }
+
+  .name {
+    font-size: 28px;
+  }
+
+  .button-add-location {
+    padding: 10px;
+    font-size: 13px;
+    margin-right: 0;
+  }
+
+  .description {
+    font-size: 11px;
+    margin-top: 5px;
+  }
 }

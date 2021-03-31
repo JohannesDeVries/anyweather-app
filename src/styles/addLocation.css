@@ -77,3 +77,95 @@ input[type='text']::placeholder {
   font-weight: 400;
   font-size: 14px;
 }
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-show-map {
+  padding: 10px 25px;
+  color: white;
+  background-color: #ff7a00;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s linear;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+.button-show-map:hover {
+  background-color: #ee7402;
+}
+
+@media (min-width: 1000px) {
+  .button-show-map {
+    display: none;
+  }
+}
+
+/* Max 500px */
+@media (max-width: 500px) {
+  label {
+    font-size: 13px;
+  }
+
+  input[type='text'] {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .latlng-desc {
+    font-size: 11px;
+  }
+
+  .input-container p {
+    font-size: 12px;
+  }
+
+  .button-show-map {
+    padding: 10px 25px;
+    font-size: 12px;
+  }
+  .button-submit {
+    padding: 10px 25px;
+    font-size: 12px;
+  }
+}
+
+/* Max 400px */
+@media (max-width: 400px) {
+  label {
+    font-size: 12px;
+  }
+
+  input[type='text'] {
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  .latlng-desc {
+    font-size: 11px;
+  }
+
+  .input-container p {
+    font-size: 10px;
+  }
+
+  .location-name input {
+    width: 100%;
+    max-width: none;
+  }
+
+  .lat {
+    margin-right: 6px;
+  }
+
+  .lat-lng input[type='text'] {
+    width: 100%;
+    min-width: 0;
+  }
+}

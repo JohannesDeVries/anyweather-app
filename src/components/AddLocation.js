@@ -46,7 +46,21 @@ const AddLocation = (props) => {
         <div className="latlng-desc">
           <p>*Click on map for coordinates or type manually.</p>
         </div>
-        <input className="button-submit" type="submit" value="Add" />
+        <div className="buttons-container">
+          <input className="button-submit" type="submit" value="Add" />
+          <button
+            type="button"
+            className="button-show-map"
+            onClick={() =>
+              window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth',
+              })
+            }
+          >
+            Map
+          </button>
+        </div>
       </form>
     </div>
   );

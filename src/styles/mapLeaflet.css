@@ -1,6 +1,7 @@
 .leaflet-container {
   width: 100%;
   height: 100vh;
+  cursor: auto;
 }
 
 .leaflet-popup-close-button {
@@ -9,4 +10,43 @@
 
 .leaflet-popup-content-wrapper {
   text-align: center;
+}
+
+.map button {
+  z-index: 999;
+  position: absolute;
+  top: 40px;
+  right: -30px;
+  transform: translate(-50%, -50%);
+
+  padding: 15px;
+  color: white;
+  background-color: #ff7a00;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s linear;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+.map button:hover {
+  background-color: #ee7402;
+}
+
+@media (max-width: 1000px) {
+  .leaflet-container {
+    /* width: 90%; */
+    /* height: 50vh; */
+  }
+  .map {
+    position: relative;
+  }
+}
+@media (min-width: 1000px) {
+  .map button {
+    display: none;
+  }
 }
