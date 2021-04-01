@@ -26,7 +26,7 @@ const Location = (props) => {
 
         // Get weather icon
         setIcon(
-          `http://openweathermap.org/img/wn/${json.current.weather[0].icon}.png`
+          `https://openweathermap.org/img/wn/${json.current.weather[0].icon}.png`
         );
 
         setisLoading(false);

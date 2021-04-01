@@ -23,7 +23,7 @@ const ForecastDay = (props) => {
     convertTimeStamp(props.forecast.dt);
 
     setIcon(
-      `http://openweathermap.org/img/wn/${props.forecast.weather[0].icon}.png`
+      `https://openweathermap.org/img/wn/${props.forecast.weather[0].icon}.png`
     );
   }, [props.forecast]);
 
