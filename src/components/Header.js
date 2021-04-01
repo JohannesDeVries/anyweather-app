@@ -1,10 +1,10 @@
-import { FaMapMarkerAlt } from 'react-icons/fa';
 import React from 'react';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 import '../styles/header.css';
 
 const Header = (props) => {
   return (
-    <div className="header-container" id="top">
+    <div className="header-container">
       <div className="logo-name-button-container">
         <div className="logo-name-container">
           <h1 className="logo">

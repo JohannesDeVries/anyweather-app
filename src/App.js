@@ -9,9 +9,10 @@ import './styles/app.css';
 
 function App() {
   const [locations, setLocations] = useState([]);
-  const [showAddComponent, setShowAddComponent] = useState(false);
   const [name, setName] = useState('');
   const [latLng, setLatLng] = useState(['', '']);
+
+  const [showAddComponent, setShowAddComponent] = useState(false);
 
   //Error message State
   const [showNameError, setShowNameError] = useState(false);
@@ -53,14 +54,14 @@ function App() {
     setLatLng([latLng[0], event.target.value]);
   };
 
-  // Variable to stop onSubmit function
-  var stopVal = false;
+  // Stop onSubmit function when validation fails
+  let stopVal = false;
 
   // Validate form (name, latitude and longitude)
   const validation = () => {
     const regex1 = /.*\S.*/;
     const regex2 = /\s+/;
-    ///\s+/g
+
     if (!regex1.test(name)) {
       setShowNameError(true);
       stopVal = true;
@@ -121,7 +122,7 @@ function App() {
     setLocations(locations.filter((location) => id !== location.id));
   };
 
-  // Move to location when clicking on marker icon
+  // Move to location on map when clicking on marker icon
   const mapRef = useRef();
   const flyToLocation = (id) => {
     const { current } = mapRef;
@@ -130,18 +131,12 @@ function App() {
       location.id === id
         ? leafletMap.flyTo(
             [Number(location.latLng[0]), Number(location.latLng[1])],
-            10,
+            12,
             { duration: 2 }
           )
         : location
     );
   };
-
-  // window.onbeforeunload = function () {
-  //   window.scrollTo(0, 0);
-  // };
-
-  // onLoad="location.href='#top'" id="top"
 
   return (
     <div className="app-container">
@@ -174,13 +169,13 @@ function App() {
             flyToLocation={flyToLocation}
           />
         </div>
-        {/* Footer */}
         <div>
+          {/* Footer */}
           <Footer />
         </div>
       </div>
-      {/* Map */}
       <div className="map">
+        {/* Map */}
         <MapLeaflet
           getLatLng={getLatLng}
           locations={locations}

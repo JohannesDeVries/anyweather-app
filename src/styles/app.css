@@ -1,6 +1,5 @@
 .app-container {
   display: flex;
-  /* position: relative; */
 }
 
 .sidebar {
@@ -20,33 +19,24 @@
   flex-basis: 0;
 }
 
+/* RESPONSIVE */
 @media (max-width: 1000px) {
   .app-container {
     display: block;
-    /* flex-direction: column; */
   }
 
   .sidebar {
     flex-grow: 0;
     flex-basis: auto;
-
     min-width: auto;
     max-width: auto;
-    /* overflow: scroll; */
-    /* overflow-y: auto; */
-
-    /* max-height: 100vh; */
-
     margin: 0 auto;
-    /* display: none; */
     height: auto;
     min-height: 100vh;
-    /* height: 100vh; */
   }
 
   .map {
     flex-grow: 0;
     flex-basis: auto;
-    /* display: none; */
   }
 }

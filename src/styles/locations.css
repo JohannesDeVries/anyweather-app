@@ -2,6 +2,7 @@
   margin-top: 50px;
 }
 
+/* RESPONSIVE */
 @media (max-width: 500px) {
   .locations-container {
     margin-top: 30px;

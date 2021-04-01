@@ -15,9 +15,8 @@
 .map button {
   z-index: 999;
   position: absolute;
-  top: 40px;
-  right: -30px;
-  transform: translate(-50%, -50%);
+  top: 10px;
+  right: 10px;
 
   padding: 15px;
   color: white;
@@ -33,20 +32,18 @@
 }
 
 .map button:hover {
-  background-color: #ee7402;
+  background-color: #e66f00;
 }
 
-@media (max-width: 1000px) {
-  .leaflet-container {
-    /* width: 90%; */
-    /* height: 50vh; */
-  }
-  .map {
-    position: relative;
-  }
-}
+/* RESPONSIVE */
 @media (min-width: 1000px) {
   .map button {
     display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .map {
+    position: relative;
   }
 }

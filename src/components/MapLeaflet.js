@@ -1,12 +1,8 @@
 import React from 'react';
-import '../styles/mapLeaflet.css';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
-// import Leaflet from 'leaflet';
+import '../styles/mapLeaflet.css';
 
 const MapLeaflet = (props) => {
-  // const corner1 = Leaflet.latLng(-90, -180);
-  // const corner2 = Leaflet.latLng(90, 180);
-  // const bounds = Leaflet.latLngBounds(corner1, corner2);
   const bounds = [
     [-85.05112878, -180],
     [85.05112878, 180],
@@ -14,29 +10,25 @@ const MapLeaflet = (props) => {
 
   return (
     <>
+      {/* Scroll to the top of app when clicked. Only visable under 1000px width */}
       <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
         To the Top
       </button>
       <Map
-        id="down"
         center={[-28.7863, 24.514]}
         zoom={6}
         onClick={props.getLatLng}
         ref={props.mapRef}
         maxBoundsViscosity={1.0}
-        // maxBounds={bounds}
         maxBounds={bounds}
         minZoom={3}
       >
+        {/* Displays map tile images */}
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           noWrap="true"
           bounds={bounds}
-          // maxBoundsViscosity={1.0}
-          // maxBounds={bounds}
-          // continuousWorld="true"
-          // maxNativeZoom={7}
         />
 
         {/* Display Markers on map for each location */}
@@ -51,6 +43,7 @@ const MapLeaflet = (props) => {
               event.target.closePopup();
             }}
           >
+            {/* Shows location name when hovering over marker */}
             <Popup>{location.name}</Popup>
           </Marker>
         ))}

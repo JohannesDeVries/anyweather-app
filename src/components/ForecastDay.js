@@ -10,14 +10,16 @@ const ForecastDay = (props) => {
   const d = new Date();
   const today = d.getDate();
 
-  // Convert UNIX datestamp from OpenWeather to a readable object using the timestampconvertjs library
+  // Convert UNIX datestamp from OpenWeather to an object using the timestampconvertjs library.
+  const convertTimeStamp = (timeStamp) => {
+    // Convert seconds to milliseconds
+    const timeStampMilli = timeStamp * 1000;
+    const convertedDate = timeStampConvert.convert(timeStampMilli, false);
+    setDate(convertedDate);
+  };
+
+  // Call convertTimeStamp function and set weather icon for that certain day
   useEffect(() => {
-    const convertTimeStamp = (timeStamp) => {
-      // Convert seconds to milliseconds
-      var timeStampMilli = timeStamp * 1000;
-      var convertedDate = timeStampConvert.convert(timeStampMilli, false);
-      setDate(convertedDate);
-    };
     convertTimeStamp(props.forecast.dt);
 
     setIcon(
@@ -28,7 +30,7 @@ const ForecastDay = (props) => {
   return (
     <div className="forecast-day-container">
       <div className="date-container">
-        {/* If the date from the OpenWeather = today's date the display 'Today' otherwise display the date. */}
+        {/* If the date from the OpenWeather = today's date then display 'Today' otherwise display the date. */}
         {date.day === today ? (
           <p>Today</p>
         ) : (
@@ -42,6 +44,7 @@ const ForecastDay = (props) => {
           <img src={icon} alt="icon" />
         </div>
         <div className="temp-forecast-container">
+          {/* Display min and max temperatures for certain day */}
           <p>{Math.round(props.forecast.temp.max)}°</p>
           <p>{Math.round(props.forecast.temp.min)}°</p>
         </div>

@@ -5,7 +5,7 @@ import '../styles/locations.css';
 const Locations = (props) => {
   return (
     <div className="locations-container">
-      {/* Display each element in list array */}
+      {/* Create a Location component for each element in locations array */}
       {props.locations.map((location) => (
         <Location
           key={location.id}

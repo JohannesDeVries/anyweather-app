@@ -14,7 +14,6 @@
   align-items: center;
 
   background-color: #555972;
-  /* #555972 */
   margin: 10px 20px;
   border-radius: 8px;
   padding: 15px;
@@ -56,7 +55,7 @@ h3 {
 }
 
 .days-button-container {
-  flex-grow: 1.7;
+  flex-grow: 1;
   flex-basis: 0;
   align-items: center;
 }
@@ -74,10 +73,11 @@ h3 {
   font-family: inherit;
   outline: none;
   cursor: pointer;
+  width: 68.73px;
 }
 
 .days-button-container button:hover {
-  background-color: #383952;
+  background-color: #3b3d57;
 }
 
 .icon-container {
@@ -135,6 +135,7 @@ h4 :hover {
     margin-right: 0;
     padding: 10px;
     font-size: 12px;
+    width: 55.78px;
   }
 
   h4 {
@@ -149,10 +150,6 @@ h4 :hover {
   }
 
   h5 {
-    font-size: 12px;
-  }
-
-  .days-button-container button {
-    font-size: 10px;
+    font-size: 13px;
   }
 }

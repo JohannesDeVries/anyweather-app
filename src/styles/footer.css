@@ -1,10 +1,10 @@
 .footer {
   font-size: 12px;
-  font-weight: 300;
   text-align: center;
   margin: 20px;
 }
 
+/* RESPONSIVE */
 @media (max-width: 1000px) {
   .footer {
     margin-bottom: 30px;
