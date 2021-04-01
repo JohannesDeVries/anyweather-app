@@ -8,30 +8,38 @@ const Location = (props) => {
   const [temp, setTemp] = useState();
   const [icon, setIcon] = useState();
   const [isLoading, setisLoading] = useState(true);
-
+  const [sevenDayTemp, setSevenDayTemp] = useState([]);
   const [showForecastComponent, setShowForecastComponent] = useState(false);
 
-  const key = '8b0b4714473daa2492c872207003b04b';
+  const key = process.env.REACT_APP_WEATHER_API_KEY;
   const lat = props.location.latLng[0];
   const lng = props.location.latLng[1];
 
-  // API call to get current and 8-day weather info
+  // Current Weather API call and getting weather icon.
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=minutely,hourly,alerts&units=metric&appid=${key}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${key}`
     )
       .then((res) => res.json())
       .then((json) => {
-        setTemp(json);
-
-        // Get weather icon
         setIcon(
-          `https://openweathermap.org/img/wn/${json.current.weather[0].icon}.png`
+          `https://openweathermap.org/img/wn/${json.weather[0].icon}.png`
         );
-
+        setTemp(json.main.temp);
         setisLoading(false);
       });
   }, [props.locations, lat, lng, key]);
+
+  // 7 Day forecast API call
+  useEffect(() => {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=current,minutely,hourly,alerts&units=metric&appid=${key}`
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        setSevenDayTemp(json.daily);
+      });
+  }, [lat, lng, key]);
 
   // Displays the forecast of selected location on button click
   const sevenDayApiButton = () => {
@@ -51,7 +59,7 @@ const Location = (props) => {
           <div className="temp-container">
             <img src={icon} alt="icon" />
             {/* Display current temperature */}
-            <h2>{Math.round(temp.current.temp)}°C</h2>
+            <h2>{Math.round(temp)}°C</h2>
           </div>
         </div>
         <div className="days-button-container">
@@ -73,7 +81,10 @@ const Location = (props) => {
       </div>
       {/* Only display when clicking on forecast button */}
       {showForecastComponent && (
-        <SevenDaysForecast location={props.location} temp={temp} />
+        <SevenDaysForecast
+          location={props.location}
+          sevenDayTemp={sevenDayTemp}
+        />
       )}
     </>
   );

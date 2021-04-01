@@ -7,7 +7,7 @@ const SevenDaysForecast = (props) => {
   return (
     <div className="seven-day-forecast-container">
       {/* Create a ForecastDay component for each element in temp.daily array*/}
-      {props.temp.daily.map((forecast) => (
+      {props.sevenDayTemp.map((forecast) => (
         <ForecastDay
           // Use Nanoid to generate key
           key={nanoid()}
