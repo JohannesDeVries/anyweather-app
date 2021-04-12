@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaMapMarkerAlt } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaArrowUp } from 'react-icons/fa';
 import '../styles/header.css';
 
 const Header = (props) => {
@@ -18,7 +18,7 @@ const Header = (props) => {
             onClick={props.toggleAddComponent}
           >
             {/* If AddLocation component is visible(true) change button text to 'Close', otherwise(false) show 'Add Location'  */}
-            {props.showAddComponent ? 'Close' : 'Add Location'}
+            {props.showAddComponent ? <FaArrowUp /> : 'Add Location'}
           </button>
         </div>
       </div>

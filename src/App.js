@@ -19,7 +19,7 @@ function App() {
   const [showLatError, setShowLatError] = useState(false);
   const [showLngError, setShowLngError] = useState(false);
 
-  //Saves locations from LocalStorage (if LocalStorage contains data), when app loads.
+  //Restores locations from LocalStorage (if LocalStorage contains data), when app loads.
   useEffect(() => {
     if (localStorage.getItem('locations')) {
       setLocations(JSON.parse(localStorage.getItem('locations')));

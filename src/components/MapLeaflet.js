@@ -12,7 +12,7 @@ const MapLeaflet = (props) => {
     <>
       {/* Scroll to the top of app when clicked. Only visable under 1000px width */}
       <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-        To the Top
+        Back
       </button>
       <Map
         center={[-28.7863, 24.514]}

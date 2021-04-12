@@ -6,10 +6,10 @@ const AddLocation = (props) => {
     <div className="add-location-container">
       <form onSubmit={props.onSubmit}>
         <div className="input-container location-name">
-          <label htmlFor="name">Location Name</label>
+          <label htmlFor="locName">Custom Location Name</label>
           <input
             type="text"
-            id="name"
+            id="locName"
             placeholder="Enter name for custom location"
             autoComplete="off"
             value={props.name}

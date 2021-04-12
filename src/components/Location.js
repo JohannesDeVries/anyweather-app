@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaTrashAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaTrashAlt, FaMapMarkerAlt, FaArrowUp } from 'react-icons/fa';
 import SevenDaysForecast from './SevenDayForecast';
 import '../styles/location.css';
 import spinner from '../spinner/spinner.gif';
@@ -65,7 +65,7 @@ const Location = (props) => {
         <div className="days-button-container">
           {/* If ForecastDay component is visible(true) change button text to 'Close', otherwise(false) show '8 days' */}
           <button onClick={sevenDayApiButton}>
-            {showForecastComponent ? 'Close' : '8 days'}
+            {showForecastComponent ? <FaArrowUp /> : '8 days'}
           </button>
         </div>
         <div className="icon-container">
