@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# AnyWeather web app:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+AnyWeather is a web app I developed that can calculate the weather for any coordinate on the planet. I used the OpenWeather API to get all the weather information for a certain location using the latitude and longitude values. I also used the Leaflet map library to render a world map on the page and make it  possible for the user to get the latitude and longitude values by just clicking on the map. The app was developed using React.
 
-## Available Scripts
+I developed this web app for people that like to travel to remote areas, mountain regions with high altitude or for people that just want a list of certain locations’ temperature all in one place. The map shows mountain peaks with their elevation in meters, hiking trails and nature/wildlife reserves. With this app you get a more precise temperature reading for a remote location than using the temperature of the nearest town.
 
-In the project directory, you can run:
+How does it work? You can type the latitude and longitude values manually, or you can click on the location on the world map to get the values automatically. You also give it a custom name. Once the location has been added you can see the current temperature and the weather condition. You are also able to see the weather forecast for the following 8 days for that specific location.
 
-### `npm start`
+## React/JavaScript concepts:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Seperate components for each section of the app
+- Seperate CSS file for each component
+- Hooks (useState, useEffect)
+- Conditional rendering 
+- Props
+- ES6
+- localStorage
+- Input Validation - I used regex and the isNaN function to validate the location name, latitude and longitude inputs.
+- The map and filter methods
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## npm packages:
+- [leaflet](https://www.npmjs.com/package/leaflet) and [react-leaflet](https://www.npmjs.com/package/react-leaflet) - I used the Leaflet library to display an interactive world map on the page.
+- [React-icons](https://www.npmjs.com/package/react-icons) - I used icons as buttons on location components.
+- [Nanoid](https://www.npmjs.com/package/nanoid) - I used it to generate ids for each saved location object.
+- [Unix-timestamp](https://www.npmjs.com/package/unix-timestamp) - I used it to convert the OpenWeather unix timestamp to a readable time.
 
-### `npm test`
+## API:
+- [OpenWeather](https://openweathermap.org/) - I used a basic fetch request inside a useEffect hook to do an API call to get the weather data for a specific location. This useEffect hook runs when changes are detected in the ‘locations’ state.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I used Netlify to deploy the web app and stored the OpenWeather API key as an environmental variable on the backend managed by Netlify.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Click [here](https://anyweather.netlify.app/) to visit the web app.
