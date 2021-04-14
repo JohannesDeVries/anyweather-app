@@ -1,6 +1,6 @@
 # AnyWeather web app:
 
-AnyWeather is a web app I developed that can calculate the weather for any coordinate on the planet. I used the OpenWeather API to get all the weather information for a certain location using the latitude and longitude values. I also used the Leaflet map library to render a world map on the page and make it  possible for the user to get the latitude and longitude values by just clicking on the map. The app was developed using React.
+AnyWeather is a web app I developed that can calculate the weather for any coordinate on the planet. I used the OpenWeather API to get all the weather data for a certain location using the latitude and longitude values. I also used the Leaflet map library to render a world map on the page and make it  possible for the user to get the latitude and longitude values by just clicking on the map. The app was developed using React.
 
 I developed this web app for people that like to travel to remote areas, mountain regions with high altitude or for people that just want a list of certain locations’ temperature all in one place. The map shows mountain peaks with their elevation in meters, hiking trails and nature/wildlife reserves. With this app you get a more precise temperature reading for a remote location than using the temperature of the nearest town.
 
